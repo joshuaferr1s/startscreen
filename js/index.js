@@ -45,7 +45,7 @@ const getWeather = () => {
 
     const currentWeather = JSON.parse(weatherStorage.getItem('weather'));
 
-    if (((new Date) - currentWeather.time) < ONE_HOUR) {
+    if (currentWeather && ((new Date) - currentWeather.time) < ONE_HOUR) {
       processWeather(currentWeather);
     } else {
       fetch(`https://weather-api.jajjferris.now.sh/${lat}/${long}`)
