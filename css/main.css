@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  padding: 0 10px;
+  width: 25vw;
+  height: 100%;
+  background: #35B9A1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar > .weather {
+  padding: 10px 0;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid white;
+}
+
+.sidebar > .weather > .day-icon {
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar > .weather > .day-icon > .day {
+  font-size: 34px;
+}
+
+.sidebar > .weather > .day-icon > .icon {
+  max-width: 40px;
+  height: auto;
+}
+
+.sidebar > .weather > .condition-temp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar > .weather > .condition-temp > .condition {
+  font-size: 20px;
+}
+
+.sidebar > .weather > .condition-temp > .temp {
+  font-size: 26px;
+}
+
+.content {
+  width: 75vw;
+  height: 100%;
+  background: #397785;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content > .dad-joke {
+  text-align: center;
+  font-size: 40px;
+  width: 50%;
+  padding: 20px 0;
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+}
+
+/* Loader */
+
+.loader {
+  display: flex;
+  width: 100%;
+  padding-top: 25%;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 12vmin;
+}
+
+.dot {
+  width: 3vmin;
+  height: 3vmin;
+  border-radius: 50%;
+  background: white;
+}
+
+.dot-1 {
+  animation: flow .6s ease 0s infinite alternate;
+}
+.dot-2 {
+  animation: flow .6s ease .3s infinite alternate;
+}
+.dot-3 {
+  animation: flow .6s ease .6s infinite alternate;
+}
+
+@keyframes flow {
+  from {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: .20;
+    transform: scale(.75);
+  }
+}
