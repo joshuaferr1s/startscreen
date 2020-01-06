@@ -4,7 +4,8 @@ const content = document.querySelector('.content');
 const weatherStorage = window.localStorage;
 const ONE_HOUR = 60 * 60 * 1000;
 
-const makeWeatherElement = ({day, icon, condition, temperature}) => {
+const makeWeatherElement = (data) => {
+  const { day, icon, condition } = data;
   return `
     <div class="weather">
       <div class="day-icon">
@@ -13,10 +14,22 @@ const makeWeatherElement = ({day, icon, condition, temperature}) => {
       </div>
       <div class="condition-temp">
         <span class="condition">${condition}</span>
-        <span class="temp">${temperature}F</span>
+        ${getTemperatureElement(data)}
       </div>
     </div>
   `;
+};
+
+const getTemperatureElement = (data) => {
+  const { temperature, temperatureLow, temperatureHigh } = data;
+  if (temperature) {
+    return `<span class="temp">${temperature}</span>`;
+  } else {
+    return `<div class="temp-stack">
+      <span class="temp">${temperatureLow}</span>
+      <span class="temp">${temperatureHigh}</span>
+    </div>`;
+  }
 };
 
 const appendWeatherToDom = (weather) => {
